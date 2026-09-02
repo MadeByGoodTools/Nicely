@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nicely — A kind word for the day ahead</title>
+  <link rel="stylesheet" href="nicely.css">
+</head>
+<body>
+  <div class="sky" aria-hidden="true">
+    <div class="cloud cloud-one"><i></i><i></i><i></i></div>
+    <div class="cloud cloud-two"><i></i><i></i><i></i></div>
+    <div class="cloud cloud-three"><i></i><i></i><i></i></div>
+    <div class="sparkles" id="sparkles"></div>
+    <div class="glow"></div>
+  </div>
+  <main>
+    <header>
+      <div class="brand"><img class="brand-icon" src="icons/icon-32.png" alt=""><span>Nicely</span></div>
+      <button class="view-saved" id="view-saved" type="button" aria-expanded="false">Saved notes <span id="saved-count">0</span></button>
+    </header>
+    <section class="saved-panel" id="saved-panel" aria-label="Saved notes" hidden>
+      <p class="saved-title">Saved notes</p>
+      <p class="saved-empty" id="saved-empty">Your saved notes will wait here for you.</p>
+      <ul id="saved-list"></ul>
+    </section>
+    <section class="card" aria-live="polite">
+      <div class="mascot" id="mascot">
+        <img class="mascot-image" src="assets/nicely-mascot.png" alt="A small smiling cloud companion">
+        <span class="paw-motion" aria-hidden="true"><img src="assets/nicely-mascot.png" alt=""></span>
+        <span class="wink" aria-hidden="true"></span>
+      </div>
+      <p class="eyebrow" id="greeting">A little note for today</p>
+      <blockquote id="note"></blockquote>
+      <div class="actions">
+        <div class="save-actions">
+          <button class="save" id="save" type="button" aria-pressed="false"><span aria-hidden="true">♡</span> Save this note</button>
+        </div>
+        <div class="continue-actions">
+          <button class="another" id="another" type="button">Another note</button>
+          <button class="continue" id="continue" type="button">Continue with your day <span aria-hidden="true">→</span></button>
+        </div>
+      </div>
+    </section>
+    <p class="footer" id="date"></p>
+  </main>
+  <script src="notes.js"></script>
+  <script src="nicely.js"></script>
+</body>
+</html>
