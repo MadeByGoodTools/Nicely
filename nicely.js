@@ -101,7 +101,10 @@ function renderNote(index, animate = false) {
     const isSaved = savedNotes.includes(notes[index]);
     saveButton.classList.toggle("saved", isSaved);
     saveButton.setAttribute("aria-pressed", String(isSaved));
-    saveButton.innerHTML = `<span aria-hidden="true">${isSaved ? "♥" : "♡"}</span> ${isSaved ? "Saved" : "Save this note"}`;
+    const heart = document.createElement("span");
+    heart.setAttribute("aria-hidden", "true");
+    heart.textContent = isSaved ? "♥" : "♡";
+    saveButton.replaceChildren(heart, document.createTextNode(` ${isSaved ? "Saved" : "Save this note"}`));
     noteEl.classList.remove("changing");
   };
 
