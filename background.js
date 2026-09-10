@@ -1,4 +1,5 @@
 const STORAGE_KEY = "nicelyLastOpened";
+let dailyOpenQueue = Promise.resolve();
 
 function localDay() {
   const now = new Date();
@@ -14,7 +15,18 @@ async function openDailyNote() {
   await chrome.tabs.create({ url: chrome.runtime.getURL("nicely.html") });
 }
 
-chrome.runtime.onStartup.addListener(openDailyNote);
+function queueDailyNote() {
+  dailyOpenQueue = dailyOpenQueue.then(openDailyNote, openDailyNote);
+  return dailyOpenQueue;
+}
+
+chrome.runtime.onStartup.addListener(() => {
+  void queueDailyNote();
+});
+
+chrome.windows.onCreated.addListener((window) => {
+  if (window.type === "normal") void queueDailyNote();
+});
 
 chrome.runtime.onInstalled.addListener(async ({ reason }) => {
   if (reason === "install") {

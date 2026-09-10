@@ -13,7 +13,7 @@ Nicely opens one warm note the first time your browser starts each day. You can 
 
 In Firefox, open `about:debugging`, choose **This Firefox**, then **Load Temporary Add-on** and select `manifest.json`.
 
-Nicely opens immediately after installation, then only once: on the first browser start of each new local calendar day. After that, it stays quiet until tomorrow.
+Nicely opens immediately after installation, then only once on the first browser start or normal browser window of each new local calendar day. This also works when Chromium keeps background processes running after its windows close. After that, Nicely stays quiet until tomorrow.
 
 ## Privacy
 
@@ -23,7 +23,7 @@ Read the full [Nicely privacy policy](https://goodtools.ca/privacy/nicely).
 
 ## More
 
-Nicely is made by [Good Tools](https://goodtools.ca). Its Chrome, Edge, and Firefox store releases are coming soon.
+Nicely is made by [Good Tools](https://goodtools.ca). It is [available for Firefox](https://addons.mozilla.org/en-US/firefox/addon/nicely/), with Chromium-based browser stores coming soon.
 
 ## License
 
