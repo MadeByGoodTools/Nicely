@@ -28,6 +28,18 @@ chrome.windows.onCreated.addListener((window) => {
   if (window.type === "normal") void queueDailyNote();
 });
 
+chrome.windows.onFocusChanged.addListener((windowId) => {
+  if (windowId !== chrome.windows.WINDOW_ID_NONE) void queueDailyNote();
+});
+
+chrome.tabs.onActivated.addListener(() => {
+  void queueDailyNote();
+});
+
+chrome.tabs.onCreated.addListener(() => {
+  void queueDailyNote();
+});
+
 chrome.runtime.onInstalled.addListener(async ({ reason }) => {
   if (reason === "install") {
     await chrome.storage.local.set({ [STORAGE_KEY]: localDay() });

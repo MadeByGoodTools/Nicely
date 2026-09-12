@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Nicely",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A kind word for the day ahead.",
   "permissions": ["storage"],
   "background": {
