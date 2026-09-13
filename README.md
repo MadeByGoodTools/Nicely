@@ -13,7 +13,7 @@ Nicely opens one warm note the first time your browser starts each day. You can 
 
 In Firefox, open `about:debugging`, choose **This Firefox**, then **Load Temporary Add-on** and select `manifest.json`.
 
-Nicely opens immediately after installation, then only once on the first browser activity of each new local calendar day. It checks browser startup, normal-window creation or focus, and tab creation or activation, so it still works when a Chromium-based browser keeps background processes running after its windows close. After that, Nicely stays quiet until tomorrow.
+Nicely opens immediately after installation, then only once on the first visible browser activity of each new local calendar day. It waits for a browser window to gain focus or for a tab to become active, so session restoration can finish before the note opens. Nicely records the day only after its tab opens successfully, then stays quiet until tomorrow.
 
 ## Privacy
 

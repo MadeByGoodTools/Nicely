@@ -11,32 +11,21 @@ async function openDailyNote() {
   const stored = await chrome.storage.local.get(STORAGE_KEY);
   if (stored[STORAGE_KEY] === today) return;
 
-  await chrome.storage.local.set({ [STORAGE_KEY]: today });
   await chrome.tabs.create({ url: chrome.runtime.getURL("nicely.html") });
+  await chrome.storage.local.set({ [STORAGE_KEY]: today });
 }
 
 function queueDailyNote() {
   dailyOpenQueue = dailyOpenQueue.then(openDailyNote, openDailyNote);
+  void dailyOpenQueue.catch(() => {});
   return dailyOpenQueue;
 }
-
-chrome.runtime.onStartup.addListener(() => {
-  void queueDailyNote();
-});
-
-chrome.windows.onCreated.addListener((window) => {
-  if (window.type === "normal") void queueDailyNote();
-});
 
 chrome.windows.onFocusChanged.addListener((windowId) => {
   if (windowId !== chrome.windows.WINDOW_ID_NONE) void queueDailyNote();
 });
 
 chrome.tabs.onActivated.addListener(() => {
-  void queueDailyNote();
-});
-
-chrome.tabs.onCreated.addListener(() => {
   void queueDailyNote();
 });
 
