@@ -2,7 +2,7 @@
 
 A gentle note of encouragement, once a day.
 
-Nicely opens one warm note the first time your browser starts each day. You can ask for another note or save a favourite. Everything stays in your browser; there is no account and no tracking.
+Nicely opens one warm note the first time your browser starts each day. Every person receives a locally randomized note from a carefully written, time-aware collection, and that note stays consistent for the day. You can ask for another note or save a favourite. Everything stays in your browser; there is no account and no tracking.
 
 ## Install in Chrome, Edge, Firefox, Brave, or Arc
 
